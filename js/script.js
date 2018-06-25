@@ -2,38 +2,40 @@ $( document ).ready(function(){
 
   var currentPage = 1;
   var topCoin = '';
-  var marketTotal = 0;
   var cryptoCurrencies = 0;
 
 
 
-  function init(limit){ //initialise script
-    $.getJSON("js/crypto.json", function(json) {  //retrieve json
+  function init(limit){
+
+    var marketTotal = 0;
+    $.getJSON("js/crypto.json", function(json) {
       var body = document.querySelector('.table-container')
       body.innerHTML = '';
       var header = true;
       if(json){
         var coinData = json
-          var page = document.createElement('div') //coins table
-          var pageNum = 0 //default page number
-          topCoin = coinData[0]['name'] //statistics
-          cryptoCurrencies = coinData.length //statistics
-          for (var i in coinData){ //loop coins
-            marketTotal += parseInt(coinData[i]['market_cap_usd'])  //add market total
-            var singleCoin = coinData[i] //coin object
+          var page = document.createElement('div')
+          var pageNum = 0
+          topCoin = coinData[0]['name']
+          cryptoCurrencies = coinData.length
+          for (var i in coinData){
+            marketTotal += parseInt(coinData[i]['market_cap_usd'])
+            var singleCoin = coinData[i]
             var rmArr = ['max_supply', 'id', 'price_btc', 'total_supply', 'percent_change_1h']
-            rmArr.forEach( function(rm){  //remove some data fields
+            rmArr.forEach( function(rm){
               singleCoin = removeProp(singleCoin, rm)
             })
-            singleCoin = formatObj(singleCoin) //format properties and values
+            singleCoin = formatObj(singleCoin)
             if(header){
-                appendHeaders(singleCoin) //append keys as table header
+                appendHeaders(singleCoin)
             }
             if (limit == 0){
-              appendCoin(singleCoin) //show all coins
+              page.append(appendCoin(singleCoin))
+              document.querySelector('.table-container').append(page)
             }
             else{
-              if ( i % limit == 0){  //client side pagination with modulus
+              if ( i % limit == 0){
                 page = document.createElement('div')
                 pageNum++
 
@@ -60,11 +62,11 @@ $( document ).ready(function(){
         noResults()
       }
 
-      appendStatistics('Top Coin: \n' + topCoin, 'Market Worth: \n $' + numberWithCommas(marketTotal), 'Total Coins: \n ' + cryptoCurrencies) //add statistics to header
+      appendStatistics('Top Coin: \n' + topCoin, 'Market Worth: \n $' + numberWithCommas(marketTotal), 'Total Coins: \n ' + cryptoCurrencies)
     });
 
     setTimeout(function(){
-      document.querySelector('.page-number').innerText = 'Page ' + currentPage.toString()+ ' of '+ document.querySelectorAll('.table-page').length; //show page of page
+      document.querySelector('.page-number').innerText = 'Page ' + currentPage.toString()+ ' of '+ document.querySelectorAll('.table-page').length;
     },100)
 
   }

@@ -66,7 +66,8 @@ $( document ).ready(function(){
     });
 
     setTimeout(function(){
-      document.querySelector('.page-number').innerText = 'Page ' + currentPage.toString()+ ' of '+ document.querySelectorAll('.table-page').length;
+      var page_amount = parseInt(document.querySelectorAll('.table-page').length) == 0 ? 1 : parseInt(document.querySelectorAll('.table-page').length)
+      document.querySelector('.page-number').innerText = 'Page ' + currentPage.toString()+ ' of '+ page_amount;
     },100)
 
   }

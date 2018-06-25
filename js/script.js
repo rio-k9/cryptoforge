@@ -7,33 +7,33 @@ $( document ).ready(function(){
 
 
 
-  function init(limit){
-    $.getJSON("js/crypto.json", function(json) {
+  function init(limit){ //initialise script
+    $.getJSON("js/crypto.json", function(json) {  //retrieve json
       var body = document.querySelector('.table-container')
       body.innerHTML = '';
       var header = true;
       if(json){
         var coinData = json
-          var page = document.createElement('div')
-          var pageNum = 0
-          topCoin = coinData[0]['name']
-          cryptoCurrencies = coinData.length
-          for (var i in coinData){
-            marketTotal += parseInt(coinData[i]['market_cap_usd'])
-            var singleCoin = coinData[i]
+          var page = document.createElement('div') //coins table
+          var pageNum = 0 //default page number
+          topCoin = coinData[0]['name'] //statistics
+          cryptoCurrencies = coinData.length /statistics
+          for (var i in coinData){ //loop coins
+            marketTotal += parseInt(coinData[i]['market_cap_usd'])  //add market total
+            var singleCoin = coinData[i] //coin object
             var rmArr = ['max_supply', 'id', 'price_btc', 'total_supply', 'percent_change_1h']
-            rmArr.forEach( function(rm){
+            rmArr.forEach( function(rm){  //remove some data fields
               singleCoin = removeProp(singleCoin, rm)
             })
-            singleCoin = formatObj(singleCoin)
+            singleCoin = formatObj(singleCoin) //format properties and values
             if(header){
-                appendHeaders(singleCoin)
+                appendHeaders(singleCoin) //append keys as table header
             }
             if (limit == 0){
-              appendCoin(singleCoin)
+              appendCoin(singleCoin) //show all coins
             }
             else{
-              if ( i % limit == 0){
+              if ( i % limit == 0){  //client side pagination with modulus
                 page = document.createElement('div')
                 pageNum++
 
@@ -60,11 +60,11 @@ $( document ).ready(function(){
         noResults()
       }
 
-      appendStatistics('Top Coin: \n' + topCoin, 'Market Worth: \n $' + numberWithCommas(marketTotal), 'Total Coins: \n ' + cryptoCurrencies)
+      appendStatistics('Top Coin: \n' + topCoin, 'Market Worth: \n $' + numberWithCommas(marketTotal), 'Total Coins: \n ' + cryptoCurrencies) //add statistics to header
     });
 
     setTimeout(function(){
-      document.querySelector('.page-number').innerText = 'Page ' + currentPage.toString()+ ' of '+ document.querySelectorAll('.table-page').length;
+      document.querySelector('.page-number').innerText = 'Page ' + currentPage.toString()+ ' of '+ document.querySelectorAll('.table-page').length; //show page of page
     },100)
 
   }

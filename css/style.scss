@@ -1,0 +1,363 @@
+$brand-color: #a00303;
+$accent-color: #ffffff;
+$white-color: #ffffff;
+$text-color: black;
+$max-width: 1190px;
+html{
+  padding:0;
+  margin:0;
+  width:100%;
+  height:100%;
+}
+body{
+  margin:0;
+  padding:0;
+  position:relative;
+  box-sizing: border-box;
+  height:100%;
+  width:100%;
+  font-family: 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  .feedback{
+    position:fixed;
+    bottom:12px;
+    right:12px;
+    width:270px;
+    height:175px;
+    border-radius:4px;
+    background:$brand-color;
+    box-sizing: border-box;
+    flex-flow:column nowrap;
+    .feedback-content{
+      display:inline-flex;
+      align-items:center;
+      height:84%;
+      justify-content:center;
+      box-sizing: border-box;
+      width:100%;
+    }
+    .feedback-content:first-child{
+      text-shadow: -.7px -.7px 0 #000, .7px -.7px 0 #000, -.7px 1.5px 0 #000, .7px .7px 0 #000;
+      font-weight:600;
+      color: $white-color;
+      height:16%;
+    }
+    .feedback-content:last-child{
+      position:relative;
+      form{
+        height:100%;
+        width:100%;
+        display:flex;
+        flex-flow: row wrap;
+        position:relative;
+        input{
+          width:50%;
+          padding:0 5px;
+          font-size:12px;
+          font-family: 'Raleway', sans-serif;
+          letter-spacing:.2px;
+          box-sizing: border-box;
+        }
+        textarea{
+          font-size:12px;
+          font-family: 'Raleway', sans-serif;
+          letter-spacing:.2px;
+          padding:5px;
+          box-sizing: border-box;
+          flex-basis:100%;
+        }
+        button{
+          margin:auto;
+          cursor:pointer;
+          border-radius:4px;
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a00303+0,7c0000+100 */
+          background:  $brand-color; /* Old browsers */
+          background: -moz-linear-gradient(top,  $brand-color 0%, #7c0000 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(top,  $brand-color 0%,#7c0000 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to bottom,  $brand-color 0%,#7c0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a00303', endColorstr='#7c0000',GradientType=0 ); /* IE6-9 */
+          border: solid $white-color 1.2px;
+          color: $white-color;
+          height:14%;
+          width:60%;
+        }
+      }
+
+    }
+  }
+
+  section.crypto-forge {
+    display: block;
+    box-sizing: border-box;
+    div {
+
+      width: 100%;
+    }
+
+    .header-container {
+      height: 130px;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a00303+0,7c0000+100 */
+      background:  $brand-color; /* Old browsers */
+      background: -moz-linear-gradient(top,  $brand-color 0%, #7c0000 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  $brand-color 0%,#7c0000 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  $brand-color 0%,#7c0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a00303', endColorstr='#7c0000',GradientType=0 ); /* IE6-9 */
+      color: #eaeaea;
+      display:flex;
+      flex-flow:row;
+      justify-content:space-evenly;
+      align-items:center;
+      .header-content:first-child{
+        flex-grow: .4;
+        min-width:230px;
+        font-weight:600;
+        font-size:42px;
+        span{
+          display:flex;
+          flex-flow:row nowrap;
+          h1{
+            text-shadow:
+                    -1.5px -1.5px 0 #000,
+                    1.5px -1.5px 0 #000,
+                    -1.5px 1.5px 0 #000,
+                    1.5px 1.5px 0 #000;
+          }
+          svg{
+            margin: 0 12px;
+            height:52px;
+            width:auto;
+          }
+        }
+
+      }
+      .header-content{
+        flex:1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        height:100%;
+
+        .header-table{
+          border-radius:8px;
+          border: inset #000 2px;
+          display:inline-flex;
+          width:500px;
+          height:70px;
+          flex-flow:row;
+          color: $text-color;
+          background:$white-color;
+          align-items:center;
+          justify-content:center;
+          .table-item{
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            flex:1;
+            text-align:center;
+          }
+          .table-item:not(:last-child){
+            border-right: solid #a8a8a8 1.2px;
+          }
+          .table-item.total_market{
+            flex:2;
+          }
+        }
+      }
+    }
+
+    .buttons-container {
+      height: 90px;
+      width:$max-width;
+      margin:auto;
+      display:flex;
+      flex-flow: row;
+      align-items:center;
+      padding:0 32px;
+      .buttons-content:first-child{
+        justify-content:flex-start;
+      }
+      .buttons-content:last-child{
+        justify-content:flex-end;
+      }
+      .buttons-content{
+        flex:1;
+        display:flex;
+        align-items:center;
+        select{
+          border:none;
+          padding:6px 12px;
+          color: $white-color;
+          border-radius:3px;
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a00303+0,7c0000+100 */
+          background: $brand-color; /* Old browsers */
+          background: -moz-linear-gradient(top,  $brand-color 0%, #7c0000 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(top,  $brand-color 0%,#7c0000 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to bottom,  $brand-color 0%,#7c0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a00303', endColorstr='#7c0000',GradientType=0 ); /* IE6-9 */
+          option{
+            background:#7c0000;
+          }
+        }
+        .page-buttons{
+          display:inline-flex;
+          max-width:100px;
+          justify-content:space-evenly;
+          flex-flow:row nowrap;
+          span{
+            color: $text-color;
+            min-width:100px;
+          }
+          button{
+            cursor:pointer;
+            border:none;
+            padding:6px 12px;
+            color: $white-color;
+            font-weight:600;
+            border-radius:3px;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a00303+0,7c0000+100 */
+            background: #a00303; /* Old browsers */
+            background: -moz-linear-gradient(top,  $brand-color 0%, #7c0000 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  $brand-color 0%,#7c0000 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  $brand-color 0%,#7c0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a00303', endColorstr='#7c0000',GradientType=0 ); /* IE6-9 */
+          }
+        }
+      }
+
+    }
+
+    .table-container {
+      flex-basis: 60%;
+      max-width: $max-width;
+      margin: auto;
+      display:flex;
+      flex-flow:column nowrap;
+      align-items:center;
+      justify-content:center;
+      padding:0 32px;
+      margin-bottom:64px;
+      border: solid $brand-color 2px;
+
+      ul {
+        background: $white-color;
+        box-sizing: border-box;
+        list-style: none;
+        width:$max-width;
+        display: flex;
+        flex-flow: row nowrap;
+        li {
+          box-sizing: border-box;
+          flex: 1;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          text-align: left;
+          display:flex;
+          align-items:center;
+          font-size:14px;
+          padding:16px 11px;
+        }
+
+        li:not([key_value="rank"]){
+          border-top: solid #a8a8a8 1.2px;
+        }
+        li:last-child{
+          border-right: solid #a8a8a8 1.2px;
+        }
+        li[key_value="rank"]{
+          order: 1;
+          max-width:55px;
+        }
+        li[key_value="rank"]:not(:first-child){
+          text-align:center;
+          border: solid #a8a8a8 1.2px;
+          border-bottom:none;
+        }
+        li[key_value="name"]{
+          order: 2;
+          min-width:210px;
+          max-width:210px;
+        }
+        li[key_value="market_cap"]{
+          order: 3;
+        }
+        li[key_value="price"]{
+          order: 4;
+          color:royalblue;
+          flex:.7;
+        }
+        li[key_value="24h_volume"]{
+          order: 5;
+          color:royalblue;
+        }
+
+        li[key_value="available_supply"]{
+          order: 6;
+          flex:1.3;
+          color:royalblue;
+        }
+        li[key_value="change_24h"]{
+          order: 7;
+          flex:.8;
+          color:limegreen;
+        }
+        li[key_value="change_7d"]{
+          order: 8;
+          color:green;
+        }
+        li[key_value="last_updated"]{
+          order: 9;
+        }
+      }
+      ul.table-header {
+        box-sizing: border-box;
+        text-transform: capitalize;
+        li{
+          box-sizing: border-box;
+          color:$text-color;
+        }
+        li.is-selected {
+          background-color: blue;
+          color: white;
+        }
+      }
+      ul.table-header.fixed {
+        position: fixed;
+        top: 0;
+        margin:auto;
+        width:$max-width;
+        height:60px;
+        padding:0 32px;
+        box-sizing:content-box;
+        background-color: #ffffff;
+        z-index: 10;
+        border-bottom: solid 2px $brand-color;
+        align-items:center;
+        li{
+          padding-top:0;
+          padding-bottom:0;
+          height:100%;
+          border-top:none;
+        }
+      }
+
+      .table-page{
+        display:none;
+        flex-flow:column nowrap;
+        align-items:center;
+        justify-content:center;
+      }
+      .table-page.active{
+
+        display:flex;
+      }
+
+
+
+    }
+
+  }
+}
+
+
+

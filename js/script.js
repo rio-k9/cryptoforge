@@ -223,8 +223,6 @@ $( document ).ready(function(){
 
       }
     }
-
-    listenTableOrder()
   }
 
 

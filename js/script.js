@@ -200,7 +200,7 @@ $( document ).ready(function(){
   function listenPagination(){
     var select = document.querySelector('select')
     select.addEventListener('change', function(){
-      getData(select.value, false)
+      init(select.value)
     })
   }
 

@@ -17,7 +17,7 @@ $( document ).ready(function(){
           var page = document.createElement('div') //coins table
           var pageNum = 0 //default page number
           topCoin = coinData[0]['name'] //statistics
-          cryptoCurrencies = coinData.length /statistics
+          cryptoCurrencies = coinData.length //statistics
           for (var i in coinData){ //loop coins
             marketTotal += parseInt(coinData[i]['market_cap_usd'])  //add market total
             var singleCoin = coinData[i] //coin object
